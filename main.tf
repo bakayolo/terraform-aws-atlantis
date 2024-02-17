@@ -107,12 +107,7 @@ locals {
     },
   ] : []
 
-  tags = merge(
-    {
-      "Name" = var.name
-    },
-    var.tags,
-  )
+  tags = var.tags
 
   policies_arn = var.policies_arn != null ? var.policies_arn : ["arn:${data.aws_partition.current.partition}:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"]
 
