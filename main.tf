@@ -337,7 +337,7 @@ resource "aws_lb_listener_rule" "unauthenticated_access_for_webhook" {
 # Security groups
 ################################################################################
 module "alb_https_sg" {
-  source  = "git::https://github.com/bakayolo/terraform-aws-security-group.git//modules/http-443?ref=myv4.3.0"
+  source  = "git::https://github.com/bakayolo/terraform-aws-security-group.git//modules/https-443?ref=myv4.3.0"
 
   name        = "${var.name}-alb-https"
   vpc_id      = local.vpc_id
