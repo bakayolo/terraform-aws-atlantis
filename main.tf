@@ -352,8 +352,7 @@ module "alb_https_sg" {
 }
 
 module "alb_http_sg" {
-  source  = "terraform-aws-modules/security-group/aws//modules/http-80"
-  version = "v4.3.0"
+  source  = "git::https://github.com/bakayolo/terraform-aws-security-group.git//modules/http-80?ref=myv4.3.0"
 
   name        = "${var.name}-alb-http"
   vpc_id      = local.vpc_id
@@ -365,8 +364,7 @@ module "alb_http_sg" {
 }
 
 module "atlantis_sg" {
-  source  = "terraform-aws-modules/security-group/aws"
-  version = "v4.3.0"
+  source = "git::https://github.com/bakayolo/terraform-aws-security-group.git?ref=myv4.3.0"
 
   name        = var.name
   vpc_id      = local.vpc_id
