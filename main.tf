@@ -231,8 +231,7 @@ module "vpc" {
 # ALB
 ################################################################################
 module "alb" {
-  source  = "terraform-aws-modules/alb/aws"
-  version = "v6.5.0"
+  source  = "git::https://github.com/bakayolo/terraform-aws-alb.git?ref=myv6.5.0"
 
   name     = var.name
   internal = var.internal
@@ -338,8 +337,7 @@ resource "aws_lb_listener_rule" "unauthenticated_access_for_webhook" {
 # Security groups
 ################################################################################
 module "alb_https_sg" {
-  source  = "terraform-aws-modules/security-group/aws//modules/https-443"
-  version = "v4.3.0"
+  source  = "git::https://github.com/bakayolo/terraform-aws-security-group.git//modules/http-443?ref=myv4.3.0"
 
   name        = "${var.name}-alb-https"
   vpc_id      = local.vpc_id
