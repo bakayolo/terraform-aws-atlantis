@@ -225,8 +225,7 @@ module "ecs_cluster" {
 }
 
 module "ecs_service" {
-  source  = "terraform-aws-modules/ecs/aws//modules/service"
-  version = "5.11.0"
+  source = "git::https://github.com/bakayolo/terraform-aws-ecs.git//modules/service?ref=fix/inference_accelerator"
 
   create = var.create
 
