@@ -358,7 +358,6 @@ module "ecs_service" {
   cpu                                   = try(var.service.cpu, 1024)
   ephemeral_storage                     = try(var.service.ephemeral_storage, {})
   family                                = try(var.service.family, null)
-  inference_accelerator                 = try(var.service.inference_accelerator, {})
   ipc_mode                              = try(var.service.ipc_mode, null)
   memory                                = try(var.service.memory, 2048)
   network_mode                          = try(var.service.network_mode, "awsvpc")
