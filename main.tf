@@ -204,6 +204,7 @@ module "ecs_service" {
   capacity_provider_strategy         = var.service.capacity_provider_strategy
   cluster_arn                        = var.create_cluster && var.create ? module.ecs_cluster.arn : var.cluster_arn
   deployment_circuit_breaker         = var.service.deployment_circuit_breaker
+  deployment_configuration           = var.service.deployment_configuration
   deployment_maximum_percent         = 100
   deployment_minimum_healthy_percent = 0
   desired_count                      = 1

@@ -437,6 +437,16 @@ variable "service" {
       enable   = bool
       rollback = bool
     }))
+    deployment_configuration = optional(object({
+      strategy             = optional(string)
+      bake_time_in_minutes = optional(string)
+      lifecycle_hook = optional(map(object({
+        hook_target_arn  = string
+        role_arn         = string
+        lifecycle_stages = list(string)
+        hook_details     = optional(string)
+      })))
+    }))
     enable_ecs_managed_tags           = optional(bool, true)
     force_new_deployment              = optional(bool, true)
     health_check_grace_period_seconds = optional(number)
